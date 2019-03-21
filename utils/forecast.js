@@ -3,7 +3,7 @@ request = require('request')
 const forecast = (lat, lng, callback) => {
     const url = `https://api.darksky.net/forecast/32e45e6c41a044618f9d3b75a2113b08/${lat},${lng}`
 
-    request({url: url, json: true}, (error, response, body) => {
+    request({url, json: true}, (error, {body}) => {
         if (error) {
             callback('Unable to connect to forecast services.', undefined)
         } else if (body.code === 400) {
