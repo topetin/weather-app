@@ -8,10 +8,10 @@ if (!address) {
     console.log('Address must be provided');
     
 } else {
-    geocode(address, (error, data) => {
+    geocode(address, (error, {location, longitude, latitude}) => {
         try {
-            console.log(data.location)
-            forecast(data.latitude, data.longitude, (forecastError, forecastData) => {
+            console.log(location)
+            forecast(latitude, longitude, (forecastError, forecastData) => {
                 if (forecastError) {
                     console.log(forecastError)
                 } else {
